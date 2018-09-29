@@ -1,0 +1,209 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}{
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework\ \#1}
+\newcommand{\hmwkDueDate}{Oct 2, 2018}
+\newcommand{\hmwkClass}{MA3518}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{Professor ZHOU Xiang}
+\newcommand{\hmwkAuthorName}{QU Chuyuan 54381934}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ }\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{homeworkProblem}
+   
+
+    \textbf{Solution}\\
+$H_0:\mu=38.5$ and $H_a:\mu\neq38.5$\\
+$\bar{X}=\frac{1}{15}\sum_{n=1}^{15}X_n=40.787$\\
+$S=\sqrt{\frac{\sum_{i=1}^{15}(x_i-\bar{x})^2}{15-1}}=3.37$\\
+$t=\frac{\bar{X}-\mu}{S/\sqrt{n}}=\frac{40.787-38.5}{3.37/\sqrt{15}}=2.63$\\
+DF=n-1=14\\
+$p=0.0198<\alpha$\\
+Therefore, we can reject Null Hypothesis and  we  conclude  that  it  is  reasonable  to  suppose the current mean retail price for oranges is different from the mean of 38.5 cents per pound in Year 2014.\\
+    
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}
+   \textbf{Solution:}\\
+   Assume  the  populations  to  be  approximately  normal  with  equal variances.\\
+   $H_0:\mu_d=0$ and $H_a:\mu_d>0$\\
+   $\overline{X_1}=208.17$ $S_1=18.67$\\
+   $\overline{X_2}=201.33$ $S_2=21.30$\\
+   $T=\frac{\overline{X_1}-\overline{X_2}-0}{\sqrt{S^2_p(\frac{1}{n_1}+\frac{1}{n_2})}}$\\
+   $S^2_p=\frac{5\times18.67^2+5\times21.3^2}{10}=401.13$\\
+   $T=\frac{208.17-201.33-0}{\sqrt{401.13(\frac{1}{6}+\frac{1}{6})}}=0.59$\\
+   DF=6+6-2=10\\
+   $p=0.284>\alpha$\\
+   Therefore, we fail to reject Null Hypothesis.\\
+   Confidence Interval:\\
+   $[(\overline{X_1}-\overline{X_2})-T(10,0.025)\sqrt{S^2_p(\frac{1}{n_1}+\frac{1}{n_2})},(\overline{X_1}-\overline{X_2}+T(10,0.025)\sqrt{S^2_p(\frac{1}{n_1}+\frac{1}{n_2})}]=[-18.95,32.63]$\\
+   
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    \textbf{Solution:}\\
+    $\mu_d=\mu_N-\mu_E$\\
+    $H_0:\mu_d=0$ and $H_a:\mu_d>0$\\
+    $\overline{X_1}=7.07$ $S_1=0.91$\\
+    $\overline{X_2}=7.91$ $S_2=1.64$\\
+    $T=\frac{\overline{X_2}-\overline{X_1}-0}{\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}}=\frac{7.91-7.07-0}{\sqrt{\frac{0.91^2}{15}+\frac{1.64^2}{12}}}=1.59$\\
+    $DF=\frac{[\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}]^2}{\frac{(S_1^2/n_1)^2}{n_1-1}+\frac{(S_2^2/n_2)^2}{n_2-1}}=\frac{[\frac{0.91^2}{15}+\frac{1.64^2}{12}]^2}{\frac{(0.91^2/15)^2}{15-1}+\frac{(1.64^2/12)^2}{12-1}}=16.309$\\
+    $p=0.06>\alpha$\\
+    Therefore, we fail to reject Null Hypothesis.\\
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+   4.\textbf{Solution:}\\
+   
+   (a)\\
+   $H_0:\sigma\ge2.4$\\
+   $\sigma^2=\frac{\sum(X-\mu)^2}{N}=\frac{\sum(X-\frac{\sum X}{N})^2}{N}=\frac{\sum X^2}{N}-(\frac{\sum X}{N})^2=396.84-392.04=4.8$\\
+   $SD=\sqrt{4.8}=2.19$\\
+   $T=\frac{(N-1)s^2}{\sigma^2}=\frac{24\times 4.8}{5.7}=20.21$\\
+   $\chi^2_{(0.95,N-1)}=36.42$\\
+   $T<\chi^2_{(0.95,N-1)}$\\
+   Therefore, we fail to reject the hypothesis and  we  conclude  that  it  is  reasonable  to  suppose standard deviation of the amount of carbon monoxide emitted from Model-A passenger cars is less than 2.4 grams per mile.\\
+   
+   (b)\\
+   $H_0:\mu_1-\mu_2\le 2$ and $H_a:\mu_1-\mu_2>2$\\
+   $\overline{X_1}=19.8$ $S_1=2.19$\\
+   $\overline{X_2}=16$ $S_2=3.33$\\
+   $T=\frac{\overline{X_1}-\overline{X_2}-2}{\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}}=\frac{19.8-16-2}{\sqrt{\frac{2.19^2}{25}+\frac{3.33^2}{13}}}=1.76$\\
+   $DF=\frac{[\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}]^2}{\frac{(S_1^2/n_1)^2}{n_1-1}+\frac{(S_2^2/n_2)^2}{n_2-1}}=\frac{[\frac{2.19^2}{25}+\frac{3.33^2}{13}]^2}{\frac{(2.19^2/25)^2}{25-1}+\frac{(3.33^2/13)^2}{13-1}}=17.56$\\
+   $p=0.048<\alpha$\\
+   Therefore,  we have sufficient evidnece to rejet Null Hypothesis.\\
+   
+   (c)\\
+   $H_0:\sigma_1=\sigma_2$ and $H_a:\sigma_1 \ne \sigma_2$\\
+   $F=\frac{s_1^2}{s_2^2}=\frac{4.8}{11.09}=0.43$\\
+   $R=\{F:F>F_0.05(24,12)=2.51 or F< F_0.55(24,12)=\frac{1}{2.51}=0.398\}$\\
+   $0.43\notin R$\\
+   $H_0$ is  not  rejected  and  we  conclude  that  it  is  reasonable  to  suppose  the  two populations have the same variance.\\
+\end{homeworkProblem}
+
+
+\end{document}
